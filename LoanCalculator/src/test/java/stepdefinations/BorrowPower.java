@@ -1,7 +1,13 @@
 package stepdefinations;
 
+import java.time.Instant;
+import java.util.Date;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.anz.pages.Baseclass;
 import com.anz.pages.Dropdowns;
@@ -10,6 +16,7 @@ import com.anz.pages.ScreenShothandle;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
 
 public class BorrowPower extends Baseclass
 {
@@ -83,20 +90,27 @@ public class BorrowPower extends Baseclass
 
 	@Then("^User is able see the amount can be borrowed$")
 	public void user_is_able_see_the_amount_can_be_borrowed() throws Exception  {
-		Thread.sleep(2000);
-		String actualtext=driver.findElement(By.xpath(pr.getProperty("verifytext"))).getText();
-		String amnt=driver.findElement(By.xpath(pr.getProperty("amount"))).getText();
-		if(actualtext.equalsIgnoreCase(pr.getProperty("expectedText")))
+		Thread.sleep(1000);	
+	
+		if(driver.findElement(By.xpath(pr.getProperty("verifytext"))).isDisplayed()==true)
 		{
+			String actualtext=driver.findElement(By.xpath(pr.getProperty("verifytext"))).getText();
+			String amnt=driver.findElement(By.xpath(pr.getProperty("amount"))).getText();
 			System.out.println(actualtext+amnt);
-			ScreenShothandle.takeSS("ScreenShot");
+			ScreenShothandle.takeSS("Result"+ Math.random());
+			driver.findElement(By.xpath(pr.getProperty("startOver"))).click();
+			Thread.sleep(1000);
+			ScreenShothandle.takeSS("Reset"+ Math.random());
+			
 		}
 		else
 		{
-			System.out.println("test case failed");
+			String errortext=driver.findElement(By.xpath("//div[@class='borrow__error__text']")).getText();
+			System.out.println(errortext);
+			ScreenShothandle.takeSS("Result"+ Math.random());
 		}
-		
-		driver.findElement(By.xpath(pr.getProperty("startOver"))).click();
+		 
+		driver.close();
 	    
 	}
 	
