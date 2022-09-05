@@ -18,22 +18,23 @@ public class Baseclass
 	public Baseclass() throws Exception
 	{
 		pr=new Properties();
-		FileInputStream file= new FileInputStream("E:\\LoanCalculator\\src\\main\\java\\com\\anz\\config\\config.properties");
+		FileInputStream file= new FileInputStream("src/main/java/com/anz/config/config.properties");
 		
 		pr.load(file);
 	}
 public static void launchApp() 
 {
 	String browsername=pr.getProperty("browser");
-	
+	String projectpath=System.getProperty("user.dir");
+	System.out.println(projectpath);
 	if(browsername.equals("chrome"))
 	{
-		System.setProperty("webdriver.chrome.driver", "D:\\Automation\\Drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "src/main/java/Drivers/chromedriver.exe");
 		driver= new ChromeDriver();
 	}
 	else if(browsername.equals("IE"))
 	{
-		System.setProperty("webdriver.ie.driver", "D:\\Automation\\Drivers\\IEDriverServer.exe");
+		System.setProperty("webdriver.ie.driver", "src/main/java/Drivers/IEDriverServer.exe");
 		InternetExplorerOptions capabilities = new InternetExplorerOptions();
 		capabilities.ignoreZoomSettings();
 		driver = new InternetExplorerDriver(capabilities);

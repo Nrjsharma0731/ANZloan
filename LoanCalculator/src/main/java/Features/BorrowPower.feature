@@ -14,8 +14,7 @@ Feature: Borrowing Power
     Then User is able see the amount can be borrowed
     
     Examples:
-        | AnnualIncome | OtherIncome | livingExpense | HomeLoanRepay | OtherLoanRepay | monthlyCommitments | CreditCardLimit |
-        | 80000 	   | 10000 		     | 500 			     | 0 			       | 100 		 	      | 0			  	         | 10000 			 |
-        | 0 	   	   | 0 		         | 1 			       | 0 			       | 0 		 	        | 0			  	         | 0 			     |
-    
+    | AnnualIncome | OtherIncome | livingExpense | HomeLoanRepay | OtherLoanRepay | monthlyCommitments | CreditCardLimit |
+    | 80000 	   | 10000 		 | 500 			 | 0 			 | 100 		 	  | 0			  	   | 10000 			 |
+    | 0 	   	   | 0 		     | 1 			 | 0 			 | 0 		 	  | 0			  	   | 0 			     |
  

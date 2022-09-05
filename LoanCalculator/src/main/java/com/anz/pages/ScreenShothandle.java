@@ -17,7 +17,7 @@ public class ScreenShothandle extends Baseclass
 	public static void takeSS(String file) throws IOException
 	{
 		File filename=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		File destination=new File("E:\\LoanCalculator\\src\\main\\java\\Screenshots\\"+file+".jpg");
+		File destination=new File("src/main/java/Screenshots/"+file+".jpg");
 		FileUtils.copyFile(filename, destination);
 	}
 

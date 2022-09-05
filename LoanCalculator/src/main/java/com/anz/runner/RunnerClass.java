@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features=("src/main/java/Features"),
-		glue= ("stepdefinations"),
+		glue= ("stepdefinitions"),
 		dryRun = false,
 		tags= "@tag1",
 		format = {"pretty", "html:target/Destination"}
